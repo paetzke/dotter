@@ -1,0 +1,15 @@
+pydot
+=====
+
+A Dot/Graphviz Wrapper in Python
+
+Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
+
+for an example take a look at src/test.py
+to install call:
+
+	python3 setup.py install
+
+requires dot. to install it on debian/ubuntu type:
+
+	sudo apt-get install graphviz
