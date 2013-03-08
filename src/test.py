@@ -3,7 +3,7 @@
 from pydot import Dotter
 
 dotter = Dotter()
-dotter.setLink('n1', 'n2')
+dotter.setLink('n1', 'n2', '1To2')
 dotter.setLink('n3', 'n2')
 dotter.setLink('n1', 'n4')
 dotter.setLink('n4', 'n2')

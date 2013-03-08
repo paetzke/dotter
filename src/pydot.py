@@ -91,15 +91,19 @@ class Dotter:
         self._sendCmd('%s [label="%s"]' % (_esc(node), label))
 
 
-    def setLink(self, node1, node2):
+    def setLink(self, node1, node2, label=None):
         '''
         @type node1: str
         @type node2: str
+        @type label: str
         '''
         if self._graphType == Dotter.GRAPH_DIRECTED:
             fmt = '%s -> %s'
         else:
             fmt = '%s -- %s'
+
+        if label is not None:
+            fmt += ' [label="%s"]' % label
         self._sendCmd(fmt % (_esc(node1), _esc(node2)))
 
 
