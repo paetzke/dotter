@@ -41,15 +41,17 @@ class Dotter:
     OUTPUT_SVG = 'svg'
 
 
-    def __init__(self, graphType=GRAPH_DIRECTED, outputType=OUTPUT_PDF, outputFilename=None):
+    def __init__(self, graphType=GRAPH_DIRECTED, outputType=OUTPUT_PDF,
+                 outputFilename=None, isStrict=False):
         '''
         @type graphType:
         @type outputType:
         @type outputFilename: str
+        @type isStrict: bool
         '''
         self._graphType = graphType
         self._isFirstCmd = True
-
+        self._isStrict = isStrict
 
         args = ['dot']
         args.append('-T%s' % outputType)
@@ -76,10 +78,13 @@ class Dotter:
         '''
         if self._isFirstCmd:
             self._isFirstCmd = False
+            if self._isStrict:
+                self.execute(' strict ')
             if self._graphType == Dotter.GRAPH_DIRECTED:
-                self.execute('digraph {')
+                self.execute('digraph')
             else:
-                self.execute('graph {')
+                self.execute('graph')
+            self.execute(' {')
 
         cmd += '\n'
         self.process.stdin.write(cmd)
