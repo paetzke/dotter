@@ -67,19 +67,19 @@ class Dotter:
 
     def close(self):
         ''' Clean Up. '''
-        self._sendCmd('}')
+        self.execute('}')
 
 
-    def _sendCmd(self, cmd):
+    def execute(self, cmd):
         '''
         @type cmd: str
         '''
         if self._isFirstCmd:
             self._isFirstCmd = False
             if self._graphType == Dotter.GRAPH_DIRECTED:
-                self._sendCmd('digraph {')
+                self.execute('digraph {')
             else:
-                self._sendCmd('graph {')
+                self.execute('graph {')
 
         cmd += '\n'
         self.process.stdin.write(cmd)
@@ -90,7 +90,7 @@ class Dotter:
         @type node: str
         @type label: str
         '''
-        self._sendCmd('%s [label="%s"]' % (_esc(node), label))
+        self.execute('%s [label="%s"]' % (_esc(node), label))
 
 
     def setLink(self, node1, node2, label=None):
@@ -106,7 +106,7 @@ class Dotter:
 
         if label is not None:
             fmt += ' [label="%s"]' % label
-        self._sendCmd(fmt % (_esc(node1), _esc(node2)))
+        self.execute(fmt % (_esc(node1), _esc(node2)))
 
 
     def setShape(self, node, shape):
@@ -114,4 +114,4 @@ class Dotter:
         @type node: str
         @type shape:
         '''
-        self._sendCmd('%s [shape="%s"]' % (_esc(node), shape))
+        self.execute('%s [shape="%s"]' % (_esc(node), shape))
