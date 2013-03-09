@@ -1,5 +1,7 @@
 '''
-@author: Friedrich Paetzke
+@author: Friedrich Paetzke <f.paetzke@gmail.com>
+@copyright: Copyright (c) 2012-2013 Friedrich Paetzke
+@license: GPL
 '''
 
 
