@@ -1,9 +1,8 @@
 '''
 @author: Friedrich Paetzke <f.paetzke@gmail.com>
-@copyright: Copyright (c) 2012-2013 Friedrich Paetzke
+@copyright: Copyright (c) 2013 Friedrich Paetzke
 @license: GPL
 '''
-
 
 import subprocess
 
