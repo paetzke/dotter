@@ -11,6 +11,15 @@ def _esc(s):
     '''
     @type s: str
     '''
+    if s is None:
+        return ''
+    s = s.replace(' ', 'SPACE')
+    s = s.replace('-', 'HYPHEN')
+    s = s.replace('.', 'DOT')
+    s = s.replace('/', 'SLASH')
+    s = s.replace('ä', 'ae')
+    s = s.replace('ö', 'oe')
+    s = s.replace('ü', 'ue')
     return s
 
 
