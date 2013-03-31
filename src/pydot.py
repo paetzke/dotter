@@ -67,7 +67,7 @@ class Dotter:
             args.append('-O')
         else:
             args.append('-o')
-            args.append('outputFilename')
+            args.append(outputFilename)
 
         self.process = subprocess.Popen(args,
                                         stdout=subprocess.PIPE,
