@@ -48,9 +48,11 @@ class Dotter:
     OUTPUT_PS = 'ps'
     OUTPUT_SVG = 'svg'
 
-
-    def __init__(self, graphType=GRAPH_DIRECTED, outputType=OUTPUT_PDF,
-                 outputFilename=None, isStrict=False):
+    def __init__(self,
+                 graphType=GRAPH_DIRECTED,
+                 outputType=OUTPUT_PDF,
+                 outputFilename=None,
+                 isStrict=False):
         '''
         @type graphType:
         @type outputType:
@@ -62,7 +64,7 @@ class Dotter:
         self._isStrict = isStrict
 
         args = ['dot']
-        args.append('-T%s' % outputType)
+        args.append('-T' + outputType)
         if outputFilename is None:
             args.append('-O')
         else:
@@ -74,11 +76,9 @@ class Dotter:
                                         stdin=subprocess.PIPE,
                                         universal_newlines=True)
 
-
     def close(self):
         ''' Clean Up. '''
         self.execute('}')
-
 
     def execute(self, cmd):
         '''
@@ -97,14 +97,12 @@ class Dotter:
         cmd += '\n'
         self.process.stdin.write(cmd)
 
-
     def setLabel(self, node, label):
         '''
         @type node: str
         @type label: str
         '''
-        self.execute('%s [label="%s"]' % (_esc(node), label))
-
+        self.execute('{0} [label="{1}"]'.format(_esc(node), label))
 
     def setLink(self, node1, node2, label=None):
         '''
@@ -113,18 +111,17 @@ class Dotter:
         @type label: str
         '''
         if self._graphType == Dotter.GRAPH_DIRECTED:
-            fmt = '%s -> %s'
+            fmt = '{0} -> {1}'
         else:
-            fmt = '%s -- %s'
+            fmt = '{0} -- {1}'
 
         if label is not None:
-            fmt += ' [label="%s"]' % label
-        self.execute(fmt % (_esc(node1), _esc(node2)))
-
+            fmt += ' [label="{0}"]'.format(label)
+        self.execute(fmt.format(_esc(node1), _esc(node2)))
 
     def setShape(self, node, shape):
         '''
         @type node: str
         @type shape:
         '''
-        self.execute('%s [shape="%s"]' % (_esc(node), shape))
+        self.execute('{0} [shape="{1}"]'.format(_esc(node), shape))
