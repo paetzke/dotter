@@ -4,6 +4,7 @@
 @license: GPL
 '''
 
+import base64
 import subprocess
 
 
@@ -11,15 +12,9 @@ def _esc(s):
     '''
     @type s: str
     '''
-    if s is None:
-        return ''
-    s = s.replace(' ', 'SPACE')
-    s = s.replace('-', 'HYPHEN')
-    s = s.replace('.', 'DOT')
-    s = s.replace('/', 'SLASH')
-    s = s.replace('ä', 'ae')
-    s = s.replace('ö', 'oe')
-    s = s.replace('ü', 'ue')
+    s = base64.b16encode(bytes(s, encoding='utf-8')).decode(encoding='utf-8')
+    for i in range(10):
+        s = s.replace(chr(ord('0') + i), chr(ord('a') + i))
     return s
 
 
