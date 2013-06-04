@@ -8,7 +8,7 @@ import base64
 import subprocess
 
 
-def _esc(s):
+def escape(s):
     ' Returns the escaped string '
     s = base64.b16encode(bytes(s, encoding='utf-8')).decode(encoding='utf-8')
     for i in range(10):
@@ -79,7 +79,7 @@ class Dotter:
 
     def setLabel(self, node, label):
         ' Sets the label for node '
-        self.execute('{0} [label="{1}"]'.format(_esc(node), label))
+        self.execute('{0} [label="{1}"]'.format(escape(node), label))
 
     def setLink(self, node1, node2, label=None):
         ' Links node1 with node2 '
@@ -89,8 +89,8 @@ class Dotter:
             fmt = '{0} -- {1}'
         if label is not None:
             fmt += ' [label="{0}"]'.format(label)
-        self.execute(fmt.format(_esc(node1), _esc(node2)))
+        self.execute(fmt.format(escape(node1), escape(node2)))
 
     def setShape(self, node, shape):
         ' Sets the shape for node  '
-        self.execute('{0} [shape="{1}"]'.format(_esc(node), shape))
+        self.execute('{0} [shape="{1}"]'.format(escape(node), shape))
