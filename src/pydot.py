@@ -1,7 +1,6 @@
 '''
 @author: Friedrich Paetzke <f.paetzke@gmail.com>
 @copyright: Copyright (c) 2013, Friedrich Paetzke
-@license: GPL
 '''
 
 import base64
