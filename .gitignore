@@ -1,0 +1,8 @@
+MANIFEST
+README.rst
+*.pyc
+
+.idea/
+build/
+dist/
+dotter.egg-info/
