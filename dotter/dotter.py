@@ -9,6 +9,18 @@ from base64 import b16encode
 from subprocess import PIPE, Popen
 
 
+class RankType:
+    """
+    These values can be used for Dotter.rank()
+
+    """
+    Max = 'max'
+    Min = 'min'
+    Same = 'same'
+    Sink = 'sink'
+    Source = 'source'
+
+
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True, output_filename=None,

@@ -5,7 +5,7 @@ Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
 
 """
-from .dotter import Dotter
+from .dotter import Dotter, RankType
 
 __version__ = '0.0.2'
 __author__ = 'Friedrich Paetzke'
