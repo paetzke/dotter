@@ -9,6 +9,18 @@ from base64 import b16encode
 from subprocess import PIPE, Popen
 
 
+class RankType:
+    """
+    These values can be used for Dotter.rank()
+
+    """
+    Max = 'max'
+    Min = 'min'
+    Same = 'same'
+    Sink = 'sink'
+    Source = 'source'
+
+
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True, output_filename=None,
@@ -32,6 +44,9 @@ class Dotter:
         else:
             self.execute('graph')
         self.execute(' {')
+
+    def __str__(self):
+        return '\n'.join(self.commands)
 
     def execute(self, command):
         self.commands.append(command)
@@ -88,3 +103,8 @@ class Dotter:
             self.execute('node [fontname="{}"]'.format(font))
         if shape:
             self.execute('node [shape="{}"]'.format(shape))
+
+    def rank(self, nodes, rank_type=RankType.Same):
+        nodes = ' '.join(Dotter.escape(node) for node in nodes)
+        cmd = '{rank=%s; %s}' % (rank_type, nodes)
+        self.execute(cmd)

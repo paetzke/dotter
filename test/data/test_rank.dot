@@ -1,0 +1,16 @@
+digraph
+ {
+gb
+gb [label="a"]
+gc
+gc [label="b"]
+gd
+gd [label="c"]
+ge
+ge [label="d"]
+gb -> gc
+gb -> gd
+gb -> ge
+{rank=min; gb gc}
+{rank=same; gd}
+{rank=max; ge}
