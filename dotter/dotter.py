@@ -103,3 +103,8 @@ class Dotter:
             self.execute('node [fontname="{}"]'.format(font))
         if shape:
             self.execute('node [shape="{}"]'.format(shape))
+
+    def rank(self, nodes, rank_type=RankType.Same):
+        nodes = ' '.join(Dotter.escape(node) for node in nodes)
+        cmd = '{rank=%s; %s}' % (rank_type, nodes)
+        self.execute(cmd)
