@@ -45,6 +45,9 @@ class Dotter:
             self.execute('graph')
         self.execute(' {')
 
+    def __str__(self):
+        return '\n'.join(self.commands)
+
     def execute(self, command):
         self.commands.append(command)
 
