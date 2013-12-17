@@ -1,4 +1,3 @@
-#! /usr/bin/env python3
 """
 dotter
 
@@ -6,18 +5,15 @@ Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
 
 """
-import sys
 import os
 import unittest
-
-BASE_DIR = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
-sys.path.insert(0, BASE_DIR)
 
 from dotter import Dotter, RankType
 
 
 def load_data(filename):
-    filename = os.path.join(BASE_DIR, 'test/data', filename)
+    test_data = os.path.dirname(os.path.abspath(os.path.dirname(__file__)))
+    filename = os.path.join(test_data, 'tests/data', filename)
     with open(filename, 'r') as f:
         return f.read().splitlines()
 
