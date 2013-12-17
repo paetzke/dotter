@@ -30,7 +30,7 @@ setup(name='dotter',
       author='Friedrich Paetzke',
       author_email='f.paetzke@gmail.com',
       url='https://github.com/paetzke/dotter',
-      packages=find_packages(exclude=['test*']),
+      packages=find_packages(exclude=['tests*']),
       classifiers=[
           'Intended Audience :: Developers',
           'License :: OSI Approved :: BSD License',
