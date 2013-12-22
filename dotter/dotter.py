@@ -62,7 +62,10 @@ class Dotter:
 
     @staticmethod
     def escape(s):
-        s = b16encode(bytes(s, encoding='utf-8')).decode(encoding='utf-8')
+        try:
+            s = b16encode(bytes(s, encoding='utf-8')).decode(encoding='utf-8')
+        except TypeError:
+            s = b16encode(s)
         for i in range(10):
             s = s.replace(chr(ord('0') + i), chr(ord('a') + i))
         return s
