@@ -3,7 +3,7 @@
 Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
 
-Dotter is a graphviz wrapper for Python 3. In order to use it you need graphviz.
+Dotter is a graphviz wrapper for Python 2 and 3. In order to use it you need graphviz.
 On Debian/Ubuntu you can install it by typing:
 
 #+BEGIN_SRC bash

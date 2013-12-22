@@ -23,7 +23,7 @@ except:
 
 setup(name='dotter',
       py_modules=['dotter'],
-      description='Dotter is a graphviz wrapper for Python 3',
+      description='Dotter is a graphviz wrapper for Python 2 and 3',
       long_description=(open('README.rst').read()),
       version='0.0.3',
       license='BSD',
