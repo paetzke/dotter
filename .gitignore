@@ -1,8 +1,8 @@
+*.pyc
 MANIFEST
 README.rst
-*.pyc
 
-.idea/
+.tox/
 build/
 dist/
 dotter.egg-info/
