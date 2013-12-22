@@ -59,7 +59,3 @@ class TestDotter(unittest.TestCase):
 
         expected = load_data('test_rank.dot')
         self.assertEqual(expected, dotter.commands)
-
-
-if __name__ == '__main__':
-    unittest.main()
