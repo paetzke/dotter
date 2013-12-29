@@ -1,6 +1,7 @@
 * dotter
 
 [[https://travis-ci.org/paetzke/dotter][https://travis-ci.org/paetzke/dotter.png?branch=master]]
+[[https://coveralls.io/r/paetzke/dotter?branch=master][https://coveralls.io/repos/paetzke/dotter/badge.png?branch=master]]
 
 Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
