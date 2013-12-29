@@ -69,3 +69,10 @@ class TestDotter(unittest.TestCase):
         output = output.splitlines()
         expected = load_data('test_output.dot')
         self.assertEqual(output, expected)
+
+    def test_nodes_attributes(self):
+        dotter = Dotter()
+        dotter.nodes_attributes(shape='box')
+        dotter.nodes_attributes(font='MyFont')
+        expected = ['digraph', ' {', 'node [shape="box"]', 'node [fontname="MyFont"]']
+        self.assertEqual(dotter.commands, expected)
