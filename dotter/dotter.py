@@ -22,6 +22,70 @@ class RankType:
     Source = 'source'
 
 
+class Shape:
+    """
+    These values can be used as valid shape values.
+    See http://www.graphviz.org/doc/info/shapes.html for more information.
+
+    """
+    Assembly = 'assembly'
+    Box = 'box'
+    Box3d = 'box3d'
+    Cds = 'cds'
+    Circle = 'circle'
+    Component = 'component'
+    Diamond = 'diamond'
+    Doublecircle = 'doublecircle'
+    Doubleoctagon = 'doubleoctagon'
+    Egg = 'egg'
+    Ellipse = 'ellipse'
+    Fivepoverhang = 'fivepoverhang'
+    Folder = 'folder'
+    Hexagon = 'hexagon'
+    House = 'house'
+    Insulator = 'insulator'
+    Invhouse = 'invhouse'
+    Invtrapezium = 'invtrapezium'
+    Invtriangle = 'invtriangle'
+    Larrow = 'larrow'
+    Lpromoter = 'lpromoter'
+    Mcircle = 'Mcircle'
+    Mdiamond = 'Mdiamond'
+    Msquare = 'Msquare'
+    Note = 'note'
+    Noverhang = 'noverhang'
+    Octagon = 'octagon'
+    Oval = 'oval'
+    Parallelogram = 'parallelogram'
+    Pentagon = 'pentagon'
+    Plaintext = 'plaintext'
+    Point = 'point'
+    Polygon = 'polygon'
+    Primersite = 'primersite'
+    Promoter = 'promoter'
+    Proteasesite = 'proteasesite'
+    Proteinstab = 'proteinstab'
+    Rarrow = 'rarrow'
+    Rect = 'rect'
+    Rectangle = 'rectangle'
+    Restrictionsite = 'restrictionsite'
+    Ribosite = 'ribosite'
+    Rnastab = 'rnastab'
+    Rpromoter = 'rpromoter'
+    Septagon = 'septagon'
+    Signature = 'signature'
+    Square = 'square'
+    Star = 'star'
+    Tab = 'tab'
+    Terminator = 'terminator'
+    Threepoverhang = 'threepoverhang'
+    Trapezium = 'trapezium'
+    Triangle = 'triangle'
+    Tripleoctagon = 'tripleoctagon'
+    Underline = 'underline'
+    Utr = 'utr'
+
+
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True, output_filename=None,
