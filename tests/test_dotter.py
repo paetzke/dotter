@@ -94,3 +94,9 @@ class TestDotter(unittest.TestCase):
         dotter.close()
         expected = ' strict \ndigraph\n {\ngb\ngb [label="a"]\n}'
         self.assertEqual(str(dotter), expected)
+
+    def test_edge_label(self):
+        dotter = Dotter(directed=False)
+        dotter.add_edge('a', 'b', 'a to b')
+        expected = ['graph', ' {', 'gb -- gc [label="a to b"]']
+        self.assertEqual(dotter.commands, expected)
