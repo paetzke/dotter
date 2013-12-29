@@ -60,3 +60,12 @@ class TestDotter(unittest.TestCase):
 
         expected = load_data('test_rank.dot')
         self.assertEqual(expected, dotter.commands)
+
+    def test_output(self):
+        dotter = Dotter(output_to_file=False, output_type='dot')
+        for node in ['a', 'b', 'c', 'd']:
+            dotter.add_node(node, label=node)
+        output = dotter.close()
+        output = output.splitlines()
+        expected = load_data('test_output.dot')
+        self.assertEqual(output, expected)

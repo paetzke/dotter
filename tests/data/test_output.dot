@@ -1,0 +1,8 @@
+digraph {
+	node [label="\N"];
+	graph [bb="0,0,270,38"];
+	gb [label=a, pos="27,19", width="0.75", height="0.51389"];
+	gc [label=b, pos="99,19", width="0.75", height="0.51389"];
+	gd [label=c, pos="171,19", width="0.75", height="0.51389"];
+	ge [label=d, pos="243,19", width="0.75", height="0.51389"];
+}
