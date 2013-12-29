@@ -76,3 +76,21 @@ class TestDotter(unittest.TestCase):
         dotter.nodes_attributes(font='MyFont')
         expected = ['digraph', ' {', 'node [shape="box"]', 'node [fontname="MyFont"]']
         self.assertEqual(dotter.commands, expected)
+
+    def test_output_to_file(self):
+        dotter = Dotter(output_filename='test.pdf')
+        expected = ['dot', '-Tpdf', '-o', 'test.pdf']
+        self.assertEqual(dotter.args, expected)
+
+    def test_strict_graph(self):
+        dotter = Dotter(strict=True)
+        dotter.add_node('a')
+        expected = [' strict ', 'digraph', ' {', 'gb', 'gb [label="a"]']
+        self.assertEqual(dotter.commands, expected)
+
+    def test_dotter_str(self):
+        dotter = Dotter(strict=True, output_to_file=False, output_type='svg')
+        dotter.add_node('a')
+        dotter.close()
+        expected = ' strict \ndigraph\n {\ngb\ngb [label="a"]\n}'
+        self.assertEqual(str(dotter), expected)
