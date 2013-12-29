@@ -9,7 +9,7 @@ All rights reserved.
 import os
 import unittest
 
-from dotter import Dotter, RankType
+from dotter import Dotter, RankType, Shape
 
 
 def load_data(filename):
@@ -72,7 +72,7 @@ class TestDotter(unittest.TestCase):
 
     def test_nodes_attributes(self):
         dotter = Dotter()
-        dotter.nodes_attributes(shape='box')
+        dotter.nodes_attributes(shape=Shape.Box)
         dotter.nodes_attributes(font='MyFont')
         expected = ['digraph', ' {', 'node [shape="box"]', 'node [fontname="MyFont"]']
         self.assertEqual(dotter.commands, expected)
