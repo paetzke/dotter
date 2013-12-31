@@ -32,3 +32,6 @@ dotter.add_node('b', label='c')
 dotter.add_edge('a', 'b')
 dotter.close()
 #+END_SRC
+
+
+[[https://bitdeli.com/free][https://d2weczhvl823v0.cloudfront.net/paetzke/dotter/trend.png]]
