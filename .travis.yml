@@ -4,7 +4,7 @@ python:
   - "3.3"
 install:
   - sudo apt-get install -y graphviz
-  - pip install coveralls pytest-cov
+  - pip install -r requirements/testing.txt
 script: py.test --cov=dotter --cov-report=term-missing
 after_success:
   - coveralls
