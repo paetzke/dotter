@@ -1,3 +1,2 @@
 include LICENSE.org
 include README.rst
-prune tests/
