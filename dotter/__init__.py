@@ -8,7 +8,7 @@ All rights reserved.
 """
 from .dotter import Dotter, RankType, Shape
 
-__version__ = '0.0.4'
+__version__ = '0.1.0'
 __author__ = 'Friedrich Paetzke'
 __license__ = 'BSD'
 __copyright__ = 'Copyright 2013 Friedrich Paetzke'
