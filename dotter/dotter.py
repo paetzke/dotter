@@ -11,6 +11,7 @@ from subprocess import PIPE, Popen
 
 
 class RankType:
+
     """
     These values can be used for Dotter.rank()
 
@@ -23,6 +24,7 @@ class RankType:
 
 
 class Shape:
+
     """
     These values can be used as valid shape values.
     See http://www.graphviz.org/doc/info/shapes.html for more information.
@@ -88,8 +90,8 @@ class Shape:
 
 class Dotter:
 
-    def __init__(self, directed=True, output_to_file=True, output_filename=None,
-                 output_type='pdf', program='dot', strict=False):
+    def __init__(self, directed=True, output_to_file=True,
+                 output_filename=None, output_type=None, program='dot', strict=False):
         self.directed = directed
 
         self.args = [program]
