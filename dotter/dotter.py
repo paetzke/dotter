@@ -2,15 +2,17 @@
 """
 dotter
 
-Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
+Copyright (c) 2013-2014, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
 
 """
+import os
 from base64 import b16encode
 from subprocess import PIPE, Popen
 
 
 class RankType:
+
     """
     These values can be used for Dotter.rank()
 
@@ -23,6 +25,7 @@ class RankType:
 
 
 class Shape:
+
     """
     These values can be used as valid shape values.
     See http://www.graphviz.org/doc/info/shapes.html for more information.
@@ -88,18 +91,26 @@ class Shape:
 
 class Dotter:
 
-    def __init__(self, directed=True, output_to_file=True, output_filename=None,
-                 output_type='pdf', program='dot', strict=False):
+    def __init__(self, directed=True, output_to_file=True,
+                 output_filename=None, output_type=None, program='dot', strict=False):
         self.directed = directed
 
         self.args = [program]
-        self.args.append('-T%s' % output_type)
+
         if output_to_file:
             if output_filename:
+                if output_type is None:
+                    _unused, file_ext = os.path.splitext(output_filename)
+                    output_type = file_ext[1:].lower()
+
                 self.args.append('-o')
                 self.args.append(output_filename)
             else:
                 self.args.append('-O')
+
+        if output_type is None:
+            output_type = 'pdf'
+        self.args.append('-T%s' % output_type)
 
         self.commands = []
         if strict:
