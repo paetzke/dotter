@@ -19,6 +19,8 @@ After that install =dotter= via =pip=.
 $ pip install dotter
 #+END_SRC
 
+[[http://vanneva.com/static/images/dotter.png]]
+
 An usage example:
 
 #+BEGIN_SRC python
