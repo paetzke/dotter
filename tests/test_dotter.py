@@ -84,7 +84,7 @@ def test_nodes_attributes():
 
 def test_output_to_file():
     dotter = Dotter(output_filename='test.pdf')
-    expected = ['dot', '-Tpdf', '-o', 'test.pdf']
+    expected = ['dot',  '-o', 'test.pdf', '-Tpdf']
     assert dotter.args == expected
 
 
@@ -108,3 +108,21 @@ def test_edge_label():
     dotter.add_edge('a', 'b', 'a to b')
     expected = ['graph', ' {', 'gb -- gc [label="a to b"]']
     assert dotter.commands == expected
+
+
+def test_default_output_type():
+    dotter = Dotter()
+    assert dotter.args == ['dot',  '-O', '-Tpdf']
+
+
+def test_get_filetype_from_name():
+    dotter = Dotter(output_filename='test.png')
+    assert dotter.args == ['dot', '-o', 'test.png', '-Tpng']
+
+    dotter = Dotter(output_filename='test.PNG')
+    assert dotter.args == ['dot', '-o', 'test.PNG', '-Tpng']
+
+
+def test_output_type_has_priority():
+    dotter = Dotter(output_filename='test.png', output_type='pdf')
+    assert dotter.args == ['dot',  '-o', 'test.png', '-Tpdf']
