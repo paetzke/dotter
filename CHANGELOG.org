@@ -1,4 +1,7 @@
 * CHANGELOG
 
+** 0.2.0
+- Enable setting output type by taking file extension
+
 ** 0.1.0
 - Add PyPy support.
