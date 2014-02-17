@@ -11,6 +11,20 @@ from base64 import b16encode
 from subprocess import PIPE, Popen
 
 
+class Program:
+
+    """
+    These values can be used as valid render engine
+
+    """
+    Circo = 'circo'
+    Dot = 'dot'
+    Fdp = 'fdp'
+    Neato = 'neato'
+    Sfdp = 'sfdp'
+    Twopi = 'twopi'
+
+
 class RankType:
 
     """
@@ -92,7 +106,8 @@ class Shape:
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True,
-                 output_filename=None, output_type=None, program='dot', strict=False):
+                 output_filename=None, output_type=None, program=Program.Dot,
+                 strict=False):
         self.directed = directed
 
         self.args = [program]
