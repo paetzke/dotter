@@ -2,13 +2,13 @@
 """
 dotter
 
-Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
+Copyright (c) 2013-2014, Friedrich Paetzke (f.paetzke@gmail.com)
 All rights reserved.
 
 """
-from .dotter import Dotter, RankType, Shape
+from .dotter import Dotter, Program, RankType, Shape
 
 __version__ = '0.2.0'
 __author__ = 'Friedrich Paetzke'
 __license__ = 'BSD'
-__copyright__ = 'Copyright 2013 Friedrich Paetzke'
+__copyright__ = 'Copyright 2013-2014 Friedrich Paetzke'
