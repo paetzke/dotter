@@ -192,6 +192,12 @@ class Dotter:
     def set_label(self, node, label):
         self.execute('{0} [label="{1}"]'.format(Dotter.escape(node), label))
 
+    def set_position(self, node, x, y):
+        if not self.args[0] in [Program.Fdp, Program.Neato]:
+            raise Warning()
+
+        self.execute('{} [pos="{},{}!"]'.format(Dotter.escape(node), x, y))
+
     def nodes_attributes(self, font=None, shape=None):
         if font:
             self.execute('node [fontname="{}"]'.format(font))
