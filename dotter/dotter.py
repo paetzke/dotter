@@ -170,12 +170,14 @@ class Dotter:
             fmt += ' [label="{0}"]'.format(label)
         self.execute(fmt.format(Dotter.escape(node1), Dotter.escape(node2)))
 
-    def add_node(self, node, font=None, fontsize=None, label=None, shape=None, url=None):
+    def add_node(self, node, font=None, fontsize=None, label=None, shape=None,
+                 url=None, style=None):
         self.execute('{0}'.format(Dotter.escape(node)))
         self.set_label(node, label if label else node)
-        self.node_attributes(node, font, fontsize, shape, url)
+        self.node_attributes(node, font, fontsize, shape, url, style)
 
-    def node_attributes(self, node, font=None, fontsize=None, shape=None, url=None):
+    def node_attributes(self, node, font=None, fontsize=None, shape=None,
+                        url=None, style=None):
         if font:
             cmd = '{0} [fontname="{1}"]'.format(Dotter.escape(node), font)
             self.execute(cmd)
@@ -187,6 +189,9 @@ class Dotter:
             self.execute(cmd)
         if url:
             cmd = '{0} [URL="{1}"]'.format(Dotter.escape(node), url)
+            self.execute(cmd)
+        if style:
+            cmd = '{0} [style="{1}"]'.format(Dotter.escape(node), style)
             self.execute(cmd)
 
     def set_label(self, node, label):
