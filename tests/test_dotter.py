@@ -48,6 +48,18 @@ def test_addnode_label():
     assert expected == dotter.commands
 
 
+def test_addnode_styles():
+    dotter = Dotter()
+    dotter.add_node('a', styles=["diagonals", "filled", "bold"])
+    expected = ['digraph',
+                ' {',
+                'gb',
+                'gb [label="a"]',
+                'gb [style="diagonals, filled, bold"]',
+                ]
+    assert expected == dotter.commands
+
+
 def test_set_position():
     dotter = Dotter(program=Program.Neato)
     dotter.add_node('a')
@@ -87,15 +99,6 @@ def test_output():
     output = output.splitlines()
     expected = load_data('test_output.dot')
     assert output == expected
-
-
-def test_nodes_attributes():
-    dotter = Dotter()
-    dotter.nodes_attributes(shape=Shape.Box)
-    dotter.nodes_attributes(font='MyFont')
-    expected = ['digraph', ' {', 'node [shape="box"]',
-                'node [fontname="MyFont"]']
-    assert dotter.commands == expected
 
 
 def test_output_to_file():

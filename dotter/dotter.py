@@ -103,6 +103,23 @@ class Shape:
     Utr = 'utr'
 
 
+class Style:
+
+    """
+    These values can be used as valid node style values.
+    See http://www.graphviz.org/doc/info/shapes.html#d:style for more info.
+
+    """
+    Bold = 'bold'
+    Dashed = 'dashed'
+    Diagonals = 'diagonals'
+    Dotted = 'dotted'
+    Filled = 'filled'
+    Invisible = 'invisible'
+    Rounded = 'rounded'
+    Solid = 'solid'
+
+
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True,
@@ -171,13 +188,13 @@ class Dotter:
         self.execute(fmt.format(Dotter.escape(node1), Dotter.escape(node2)))
 
     def add_node(self, node, font=None, fontsize=None, label=None, shape=None,
-                 url=None, style=None):
+                 url=None, styles=None):
         self.execute('{0}'.format(Dotter.escape(node)))
         self.set_label(node, label if label else node)
-        self.node_attributes(node, font, fontsize, shape, url, style)
+        self.node_attributes(node, font, fontsize, shape, url, styles)
 
     def node_attributes(self, node, font=None, fontsize=None, shape=None,
-                        url=None, style=None):
+                        url=None, styles=None):
         if font:
             cmd = '{0} [fontname="{1}"]'.format(Dotter.escape(node), font)
             self.execute(cmd)
@@ -190,7 +207,8 @@ class Dotter:
         if url:
             cmd = '{0} [URL="{1}"]'.format(Dotter.escape(node), url)
             self.execute(cmd)
-        if style:
+        if styles:
+            style = ", ".join(styles)
             cmd = '{0} [style="{1}"]'.format(Dotter.escape(node), style)
             self.execute(cmd)
 
