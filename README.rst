@@ -50,6 +50,11 @@ Thanks to:
 CHANGELOG
 ---------
 
+0.4.0
+~~~~~
+
+* Add support for styling nodes
+
 0.3.0
 ~~~~~
 
