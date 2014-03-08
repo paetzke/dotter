@@ -51,7 +51,7 @@ def test_addnode_label():
 
 def test_addnode_styles():
     dotter = Dotter()
-    dotter.add_node('a', styles=["diagonals", "filled", "bold"])
+    dotter.add_node('a', styles=["diagonals", "filled", Style.Bold])
     expected = ['digraph',
                 ' {',
                 'gb',
