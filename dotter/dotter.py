@@ -208,7 +208,7 @@ class Dotter:
             cmd = '{0} [URL="{1}"]'.format(Dotter.escape(node), url)
             self.execute(cmd)
         if styles:
-            style = ", ".join(styles)
+            style = ', '.join(styles)
             cmd = '{0} [style="{1}"]'.format(Dotter.escape(node), style)
             self.execute(cmd)
 
