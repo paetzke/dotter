@@ -8,8 +8,9 @@ All rights reserved.
 """
 import os
 
-from dotter import Dotter, Program, RankType, Shape
 from pytest import raises
+
+from dotter import Dotter, Program, RankType, Shape, Style
 
 
 def load_data(filename):
@@ -45,6 +46,18 @@ def test_addnode_label():
     dotter = Dotter()
     dotter.add_node('a', label='b')
     expected = ['digraph', ' {', 'gb', 'gb [label="b"]']
+    assert expected == dotter.commands
+
+
+def test_addnode_styles():
+    dotter = Dotter()
+    dotter.add_node('a', styles=["diagonals", "filled", Style.Bold])
+    expected = ['digraph',
+                ' {',
+                'gb',
+                'gb [label="a"]',
+                'gb [style="diagonals, filled, bold"]',
+                ]
     assert expected == dotter.commands
 
 
