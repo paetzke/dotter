@@ -40,6 +40,25 @@ An usage example:
     dotter.add_edge('a', 'b')
     dotter.close()
 
+CHANGELOG
+---------
+
+0.3.0
+~~~~~
+
+* Add method ``set_position()`` for setting position of a node.
+* Switch from README.org to README.rst This enables you to install this package directly from a git repository.
+
+0.2.0
+~~~~~
+
+* Enable setting output type by taking file extension
+
+0.1.0
+~~~~~
+
+* Add PyPy support.
+
 .. image:: https://d2weczhvl823v0.cloudfront.net/paetzke/dotter/trend.png
   :target: https://bitdeli.com/free
 
