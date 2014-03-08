@@ -101,6 +101,15 @@ def test_output():
     assert output == expected
 
 
+def test_nodes_attributes():
+    dotter = Dotter()
+    dotter.nodes_attributes(shape=Shape.Box)
+    dotter.nodes_attributes(font='MyFont')
+    expected = ['digraph', ' {', 'node [shape="box"]',
+                'node [fontname="MyFont"]']
+    assert dotter.commands == expected
+
+
 def test_output_to_file():
     dotter = Dotter(output_filename='test.pdf')
     expected = ['dot',  '-o', 'test.pdf', '-Tpdf']
