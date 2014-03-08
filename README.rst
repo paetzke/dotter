@@ -40,6 +40,13 @@ An usage example:
     dotter.add_edge('a', 'b')
     dotter.close()
 
+CREDITS
+-------
+
+Thanks to:
+
+* Russ Warren (https://github.com/rwarren) for adding style support
+
 CHANGELOG
 ---------
 
