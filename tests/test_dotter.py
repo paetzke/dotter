@@ -8,8 +8,9 @@ All rights reserved.
 """
 import os
 
-from dotter import Dotter, Program, RankType, Shape
 from pytest import raises
+
+from dotter import Dotter, Program, RankType, Shape, Style
 
 
 def load_data(filename):
