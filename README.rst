@@ -8,9 +8,6 @@ dotter
 .. image:: https://pypip.in/v/dotter/badge.png
   :target: https://pypi.python.org/pypi/dotter/
 
-Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
-All rights reserved.
-
 Dotter is a graphviz wrapper for Python 2 and 3. In order to use it you need graphviz.
 On Debian/Ubuntu you can install it by typing:
 
@@ -71,6 +68,7 @@ CHANGELOG
 
 * Add PyPy support.
 
-.. image:: https://d2weczhvl823v0.cloudfront.net/paetzke/dotter/trend.png
-  :target: https://bitdeli.com/free
+Copyright (c) 2013, Friedrich Paetzke (paetzke@fastmail.fm)
+
+All rights reserved.
 
