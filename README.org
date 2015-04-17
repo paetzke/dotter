@@ -17,7 +17,7 @@ After that install =dotter= via =pip=.
 $ pip install dotter
 #+END_SRC
 
-[[http://vanneva.com/static/images/dotter.png]]
+[[https://paetzke.me/static/images/dotter.png]]
 
 An usage example:
 
@@ -34,31 +34,17 @@ dotter.close()
 #+END_SRC
 
 
-** CREDITS
+** Bugs and improvements
 
-Thanks to:
-
-- Russ Warren (https://github.com/rwarren) for adding style support
-
-
-** CHANGELOG
-
-*** 0.4.0
-- Add support for styling nodes
-
-*** 0.3.0
-- Add method =set_position()= for setting position of a node.
-- Switch from README.org to README.rst
-  This enables you to install this package directly from a git repository.
-
-*** 0.2.0
-- Enable setting output type by taking file extension
-
-*** 0.1.0
-- Add PyPy support.
+Feel free to open tickets or send pull requests with improvements.
+These [[https://github.com/paetzke/dotter/graphs/contributors][contributors]] have done so.
 
 
 
-Copyright (c) 2013, Friedrich Paetzke (paetzke@fastmail.fm)
+** Copyright
 
-All rights reserved.
+Copyright (c) 2013-2015 Friedrich Pätzke.
+See [[LICENSE]] for further details.
+
+
+See you. [[https://twitter.com/paetzke][Friedrich]].

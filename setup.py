@@ -2,12 +2,11 @@
 """
 dotter
 
-Copyright (c) 2013, Friedrich Paetzke (f.paetzke@gmail.com)
+Copyright (c) 2013, Friedrich Paetzke (paetzke@fastmail.fm)
 All rights reserved.
 
 """
-from setuptools import setup, find_packages
-
+from setuptools import find_packages, setup
 
 setup(name='dotter',
       py_modules=['dotter'],
@@ -16,7 +15,7 @@ setup(name='dotter',
       version='0.4.0',
       license='BSD',
       author='Friedrich Paetzke',
-      author_email='f.paetzke@gmail.com',
+      author_email='paetzke@fastmail.fm',
       url='https://github.com/paetzke/dotter',
       packages=find_packages(exclude=['tests*']),
       classifiers=[
