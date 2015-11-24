@@ -8,7 +8,7 @@ All rights reserved.
 """
 import os
 
-from dotter import Dotter, Program, RankType, Shape, Style
+from dotter import Dotter, Program, RankType, Shape, Style, Directions
 from pytest import raises
 
 
@@ -22,14 +22,14 @@ def load_data(filename):
 def test_undirected_graph():
     dotter = Dotter(directed=False)
     dotter.add_edge('a', 'b')
-    expected = ['graph', ' {', 'gb -- gc']
+    expected = ['graph', ' {', 'gb -- gc []']
     assert expected == dotter.commands
 
 
 def test_directed_graph():
     dotter = Dotter(directed=True)
     dotter.add_edge('a', 'b')
-    expected = ['digraph', ' {', 'gb -> gc']
+    expected = ['digraph', ' {', 'gb -> gc []']
     assert expected == dotter.commands
 
 
@@ -37,7 +37,7 @@ def test_strict():
     dotter = Dotter(strict=False)
     dotter.add_edge('a', 'b')
     dotter.add_edge('a', 'b')
-    expected = ['digraph', ' {', 'gb -> gc', 'gb -> gc']
+    expected = ['digraph', ' {', 'gb -> gc []', 'gb -> gc []']
     assert expected == dotter.commands
 
 
@@ -96,8 +96,14 @@ def test_output():
     for node in ['a', 'b', 'c', 'd']:
         dotter.add_node(node, label=node)
     output = dotter.close()
+    output = output.replace('\t', '')
     output = output.splitlines()
+    output = ''.join(output)
+    print(output)
     expected = load_data('test_output.dot')
+    expected = ''.join(expected)
+    expected = expected.replace('\t', '')
+    print(expected)
     assert output == expected
 
 
@@ -133,8 +139,15 @@ def test_dotter_str():
 
 def test_edge_label():
     dotter = Dotter(directed=False)
-    dotter.add_edge('a', 'b', 'a to b')
+    dotter.add_edge('a', 'b', label='a to b')
     expected = ['graph', ' {', 'gb -- gc [label="a to b"]']
+    assert dotter.commands == expected
+
+
+def test_edge_attributes():
+    dotter = Dotter(directed=False)
+    dotter.add_edge('a', 'b', label='a to b', direction=Directions.Both)
+    expected = ['graph', ' {', 'gb -- gc [label="a to b", dir="both"]']
     assert dotter.commands == expected
 
 
