@@ -8,8 +8,9 @@ All rights reserved.
 """
 import os
 
-from dotter import Dotter, Program, RankType, Shape, Style, Directions
 from pytest import raises
+
+from dotter import Directions, Dotter, Program, RankType, Shape, Style
 
 
 def load_data(filename):
@@ -95,15 +96,8 @@ def test_output():
     dotter = Dotter(output_to_file=False, output_type='dot')
     for node in ['a', 'b', 'c', 'd']:
         dotter.add_node(node, label=node)
-    output = dotter.close()
-    output = output.replace('\t', '')
-    output = output.splitlines()
-    output = ''.join(output)
-    print(output)
-    expected = load_data('test_output.dot')
-    expected = ''.join(expected)
-    expected = expected.replace('\t', '')
-    print(expected)
+    output = dotter.commands
+    expected = [x.replace('\t', '') for x in load_data('test_output.dot')]
     assert output == expected
 
 
