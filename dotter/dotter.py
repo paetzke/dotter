@@ -120,6 +120,18 @@ class Style:
     Solid = 'solid'
 
 
+class Directions:
+
+    """
+    These values can be used as valid edge direction values.
+    See http://www.graphviz.org/doc/info/shapes.html#d:dir for more info.
+    """
+    Forward = 'forward'
+    Backward = 'back'
+    Neither = 'none'
+    Both = 'both'
+
+
 class Dotter:
 
     def __init__(self, directed=True, output_to_file=True,
@@ -178,14 +190,25 @@ class Dotter:
             s = s.replace(chr(ord('0') + i), chr(ord('a') + i))
         return s
 
-    def add_edge(self, node1, node2, label=None):
+    def add_edge(self, node1, node2, label=None, direction=None):
         if self.directed:
             fmt = '{0} -> {1}'
         else:
             fmt = '{0} -- {1}'
+        edge = fmt.format(Dotter.escape(node1), Dotter.escape(node2))
+        self.edge_attributes(edge, label, direction)
+
+    def edge_attributes(self, edge, label=None,
+                        direction=Directions.Forward):
+        cmd = ''
         if label:
-            fmt += ' [label="{0}"]'.format(label)
-        self.execute(fmt.format(Dotter.escape(node1), Dotter.escape(node2)))
+            label = 'label="{0}"'.format(label)
+        if direction:
+            direction = 'dir="{0}"'.format(direction)
+        attributes = ', '.join([attr for attr in [label, direction]
+                                if attr is not None])
+        cmd = '{0} [{1}]'.format(edge, attributes)
+        self.execute(cmd)
 
     def add_node(self, node, font=None, fontsize=None, label=None, shape=None,
                  url=None, styles=None):
