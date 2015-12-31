@@ -1,8 +1,10 @@
-digraph {
-graph [bb="0,0,270,36"];
-node [label="\N"];
-gb [height=0.5,label=a,pos="27,18",width=0.75];
-gc [height=0.5,label=b,pos="99,18",width=0.75];
-gd [height=0.5,label=c,pos="171,18",width=0.75];
-ge [height=0.5,label=d,pos="243,18",width=0.75];
-}
+digraph
+ {
+	gb
+gb [label="a"]
+	gc
+gc [label="b"]
+	gd
+gd [label="c"]
+	ge
+ge [label="d"]
