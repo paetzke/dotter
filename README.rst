@@ -3,9 +3,9 @@ dotter
 
 .. image:: https://travis-ci.org/paetzke/dotter.png?branch=master
   :target: https://travis-ci.org/paetzke/dotter
-.. image:: https://coveralls.io/repos/paetzke/dotter/badge.png?branch=master
+.. image:: https://coveralls.io/repos/paetzke/dotter/badge.svg?branch=master&service=github
   :target: https://coveralls.io/r/paetzke/dotter?branch=master
-.. image:: https://pypip.in/v/dotter/badge.png
+.. image:: https://badge.fury.io/py/dotter.svg
   :target: https://pypi.python.org/pypi/dotter/
 
 Dotter is a graphviz wrapper for Python 2 and 3. In order to use it you need graphviz.
@@ -21,17 +21,17 @@ After that install ``dotter`` via ``pip``.
 
     $ pip install dotter
 
-.. image:: https://paetzke.me/static/images/dotter.png
+.. image:: https://raw.githubusercontent.com/paetzke/dotter/update-readme/docs/dotter.png
 
 An usage example:
 
 .. code:: python
 
     from dotter import Dotter
-    
-    
+
+
     dotter = Dotter()
-    
+
     dotter.add_node('a', label='b')
     dotter.add_node('b', label='c')
     dotter.add_edge('a', 'b')
@@ -50,4 +50,3 @@ Copyright (c) 2013-2015 Friedrich Pätzke.
 See `LICENSE <LICENSE>`_ for further details.
 
 See you. `Friedrich <https://twitter.com/paetzke>`_.
-
