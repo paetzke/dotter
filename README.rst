@@ -21,7 +21,7 @@ After that install ``dotter`` via ``pip``.
 
     $ pip install dotter
 
-.. image:: https://raw.githubusercontent.com/paetzke/dotter/update-readme/docs/dotter.png
+.. image:: https://raw.githubusercontent.com/paetzke/dotter/master/docs/dotter.png
 
 An usage example:
 
